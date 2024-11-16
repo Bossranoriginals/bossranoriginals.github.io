@@ -147,6 +147,13 @@
 <script charset="utf-8" src="js/ny_44d5d22.js"></script>
 
 
-
+<!-- Footer placeholder -->
+<div id="footer-placeholder"></div> 
+<script>
+    fetch('footer.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+</script>
+<!-- Footer placeholder end-->
 
 </body></html><!--This is Git Project From BossranOriginals--><!--stamp:fe880f0d-d206-41a2-ac08-ab8436c67320,tplId:23352,newsId:1189090,tplName:明日之后英文版-公测官网-PC[news][Pub][11041]-->
