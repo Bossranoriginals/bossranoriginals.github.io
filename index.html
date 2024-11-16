@@ -384,8 +384,27 @@
             .then(res => res.text())
             .then(html => document.getElementById('footer-placeholder').innerHTML = html);
     </script>
-  
 
+    <!--audio-------------------->
+      <audio id="audioPlayer" autoplay loop>
+        <source src="music/Bankai.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audioPlayer = document.getElementById('audioPlayer');
+            
+            // Wait until the audio can play before setting the volume
+            audioPlayer.addEventListener('canplay', () => {
+                audioPlayer.volume = 0.05; // Set the volume to 10%
+                audioPlayer.play(); // Ensure it plays if not already playing
+            });
+
+            // Make sure autoplay and loop are set correctly
+            audioPlayer.autoplay = true;
+            audioPlayer.loop = true;
+        });
+    </script>
 
   </body>
 </html>

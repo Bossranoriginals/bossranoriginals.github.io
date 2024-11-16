@@ -1,5 +1,4 @@
-<html>
-    <body>
+
 
         <div style="position:fixed;bottom:20px;right:20px;z-index:1000;">
             <a href="https://m.me/386195394586464" target="_blank" 
@@ -11,25 +10,4 @@
             </a>
         </div>
 
-        <audio id="audioPlayer" autoplay loop>
-            <source src="music/Bankai.mp3" type="audio/mp3">
-        </audio>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const audioPlayer = document.getElementById('audioPlayer');
-                
-                // Wait until the audio can play before setting the volume
-                audioPlayer.addEventListener('canplay', () => {
-                    audioPlayer.volume = 0.1; // Set the volume to 10%
-                    audioPlayer.play(); // Ensure it plays if not already playing
-                });
-
-                // Make sure autoplay and loop are set correctly
-                audioPlayer.autoplay = true;
-                audioPlayer.loop = true;
-            });
-        </script>
-
-    </body>
-</html>
