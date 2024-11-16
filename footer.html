@@ -1,27 +1,32 @@
+<html>
+    <body>
 
-<div style="position:fixed;bottom:20px;right:20px;z-index:1000;">
-    <a href="https://m.me/386195394586464" target="_blank" 
-       style="display:flex;width:60px;height:60px;background:#0078FF;border-radius:50%;box-shadow:0 4px 6px rgba(0,0,0,0.1);align-items:center;justify-content:center;text-decoration:none;transition:transform 0.3s, box-shadow 0.3s;"
-       onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 8px 15px rgba(0, 0, 0, 0.2)';"
-       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-        <img src="https://messengernews.fb.com/wp-content/uploads/2021/07/121580929_1042359612888812_1633869688219687211_n-1.png" 
-             alt="Messenger" style="width:35px;height:35px;">
-    </a>
-</div>
+        <div style="position:fixed;bottom:20px;right:20px;z-index:1000;">
+            <a href="https://m.me/386195394586464" target="_blank" 
+            style="display:flex;width:60px;height:60px;background:#0078FF;border-radius:50%;box-shadow:0 4px 6px rgba(0,0,0,0.1);align-items:center;justify-content:center;text-decoration:none;transition:transform 0.3s, box-shadow 0.3s;"
+            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 8px 15px rgba(0, 0, 0, 0.2)';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
+                <img src="https://messengernews.fb.com/wp-content/uploads/2021/07/121580929_1042359612888812_1633869688219687211_n-1.png" 
+                    alt="Messenger" style="width:35px;height:35px;">
+            </a>
+        </div>
 
-<audio id="audioPlayer"  autoplay loop>
-    <source src="music/Bankai.mp3" type="audio/mp3">
-    </audio>
+        <audio id="audioPlayer"  autoplay loop>
+            <source src="music/Bankai.mp3" type="audio/mp3">
+        </audio>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const audioPlayer = document.getElementById('audioPlayer');
-        
-        // Set the volume to 10% (0.1)
-        audioPlayer.volume = 0.1;
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const audioPlayer = document.getElementById('audioPlayer');
+                
+                // Set the volume to 10% (0.1)
+                audioPlayer.volume = 0.1;
 
-        // Set the autoplay and loop attributes
-        audioPlayer.autoplay = true;
-        audioPlayer.loop = true;
-      });
-    </script>
+                // Set the autoplay and loop attributes
+                audioPlayer.autoplay = true;
+                audioPlayer.loop = true;
+            });
+        </script>
+
+    </body>
+</html>
