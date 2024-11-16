@@ -264,7 +264,28 @@
 <script charset="utf-8" src="js/jquery%28mixNIE%29.1.11.js"></script>
 <script charset="utf-8" src="js/ny_44d5d22.js"></script>
 
+    <!-- Facebook Messenger Chat Plugin -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" 
+    src="https://connect.facebook.net/en_US/sdk.js"></script>
 
+    <div class="fb-customerchat"
+        attribution="setup_tool"
+        page_id="386195394586464"
+        theme_color="#0084ff"
+        logged_in_greeting="Hi! How can we help you?"
+        logged_out_greeting="Hi! Please log in to chat with us.">
+    </div>
+
+    <script>
+    // Initialize the Facebook SDK
+    window.fbAsyncInit = function() {
+        FB.init({
+        xfbml: true,
+        version: 'v17.0' // Ensure the latest version
+        });
+    };
+    </script>
 
 
 </body></html><!--This is Git Project From BossranOriginals--><!--stamp:483f8b82-112f-438b-aefb-1f1916b6aea7,tplId:23353,pageId:26157,tplName:明日之后英文版-公测官网-PC[list][Pub][11041]-->
