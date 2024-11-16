@@ -328,9 +328,7 @@
           <div class="swiper-slide last-screen">
             <div class="footer_box">
               <div class="footer">
-                <audio controls autoplay loop>
-                  <source src="music/Bankai.mp3">
-                </audio>
+                
                 <a href="/" class="footer_logo" target="_blank"></a>
                 <div class="txt">
                   <p>
@@ -375,6 +373,23 @@
     <script charset="utf-8" src="js/jquery.superslide.js"></script>
     <script charset="utf-8" src="js/common_ce2732b.js"></script>
     <script charset="utf-8" src="js/index_fa309bd.js"></script>
+    
+    <audio id="audioPlayer" controls autoplay loop>
+      <source src="music/Bankai.mp3" type="audio/mp3">
+    </audio>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const audioPlayer = document.getElementById('audioPlayer');
+        
+        // Set the volume to 10% (0.1)
+        audioPlayer.volume = 0.1;
+  
+        // Set the autoplay and loop attributes
+        audioPlayer.autoplay = true;
+        audioPlayer.loop = true;
+      });
+    </script>
     
 
 
