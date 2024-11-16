@@ -21,6 +21,22 @@
     <link rel="stylesheet" href="css/swiper.3.4.1.css">
     <link type="text/css" rel="stylesheet" href="css/index_46b34e4.css" media="all">
     <script async="" src="js/analytics.js"></script>
+    
+     <!-- Facebook Messenger Chat Plugin -->
+     <div id="fb-root"></div>
+     <div class="fb-customerchat" attribution="setup_tool" page_id="386195394586464"></div>
+ 
+     <script>
+       // Load the Facebook SDK for JavaScript
+       (function(d, s, id) {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+     </script>
+     
   </head>
   <body id="tpl">
     <div id="share_content" style="display:none">
@@ -367,21 +383,8 @@
     <script charset="utf-8" src="js/common_ce2732b.js"></script>
     <script charset="utf-8" src="js/index_fa309bd.js"></script>
 
-    <!-- Floating Messenger -->
-    <!-- Facebook Messenger Chat Plugin -->
-    <div id="fb-root"></div>
-    <div class="fb-customerchat" attribution="setup_tool" page_id="386195394586464"></div>
 
-    <script>
-      // Load the Facebook SDK for JavaScript
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
+   
 
 
   </body>
