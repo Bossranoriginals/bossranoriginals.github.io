@@ -372,26 +372,14 @@
 
    
     <!-- Facebook Messenger Chat Plugin -->
-      <div id="messenger-modal" style="display:none;position:fixed;bottom:20px;right:20px;width:350px;height:500px;background:white;box-shadow:0 4px 10px rgba(0,0,0,0.2);z-index:1001;border-radius:10px;">
-        <iframe src="https://m.me/386195394586464" style="width:100%;height:100%;border:none;"></iframe>
-        <button onclick="closeModal()" style="position:absolute;top:10px;right:10px;background:#f44336;color:white;border:none;padding:5px;border-radius:50%;cursor:pointer;">&times;</button>
-    </div>
-
     <div style="position:fixed;bottom:20px;right:20px;z-index:1000;">
-        <button onclick="openModal()" style="width:60px;height:60px;background:#0078FF;border-radius:50%;box-shadow:0 4px 6px rgba(0,0,0,0.1);cursor:pointer;">
-            <img src="https://messengernews.fb.com/wp-content/uploads/2021/07/121580929_1042359612888812_1633869688219687211_n-1.png" 
-                alt="Messenger" style="width:35px;height:35px;">
-        </button>
+      <a href="https://m.me/386195394586464" target="_blank" 
+         style="display:flex;width:60px;height:60px;background:#0078FF;border-radius:50%;box-shadow:0 4px 6px rgba(0,0,0,0.1);align-items:center;justify-content:center;text-decoration:none;">
+          <img src="https://messengernews.fb.com/wp-content/uploads/2021/07/121580929_1042359612888812_1633869688219687211_n-1.png" 
+               alt="Messenger" style="width:35px;height:35px;">
+      </a>
     </div>
-
-    <script>
-        function openModal() {
-            document.getElementById('messenger-modal').style.display = 'block';
-        }
-        function closeModal() {
-            document.getElementById('messenger-modal').style.display = 'none';
-        }
-    </script>
+  
 
 
   </body>
