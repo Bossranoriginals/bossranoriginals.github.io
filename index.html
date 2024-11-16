@@ -372,13 +372,13 @@
 
    
     <!-- Facebook Messenger Chat Plugin -->
-    <div style="position:fixed;bottom:20px;right:20px;z-index:1000;">
-      <a href="https://m.me/386195394586464" target="_blank" 
-         style="display:flex;width:60px;height:60px;background:#0078FF;border-radius:50%;box-shadow:0 4px 6px rgba(0,0,0,0.1);align-items:center;justify-content:center;text-decoration:none;">
-          <img src="https://messengernews.fb.com/wp-content/uploads/2021/07/121580929_1042359612888812_1633869688219687211_n-1.png" 
-               alt="Messenger" style="width:35px;height:35px;">
-      </a>
-    </div>
+    <div id="footer-placeholder"></div> <!-- Footer placeholder -->
+
+    <script>
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+    </script>
   
 
 
