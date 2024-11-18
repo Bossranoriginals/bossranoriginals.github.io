@@ -395,8 +395,21 @@
             .then(html => document.getElementById('footer-placeholder').innerHTML = html);
     </script>
 
+    <audio id="audio" src="blob:https://www.wish1075.com/0dc3ba04-caa4-4122-8a03-13000ead5273"></audio>
+    <div class="controls">
+        <button class="button audio-button" id="play" style="display: flex;">
+            <span class="material-icons">play_circle</span>
+            <span>Livestream</span>
+        </button>
+        <button class="button audio-button" id="pause" style="display: none;">
+            <span class="material-icons">pause_circle</span>
+            <span><marquee scrollamount="5" scrolldelay="100" id="show-marquee" style="width: 82px;overflow: hidden; white-space: nowrap;">
+        Playing ...
+    </marquee></span>
+        </button>
+    </div>
     <!--audio-------------------->
-      <audio id="audioPlayer" autoplay loop>
+<!--       <audio id="audioPlayer" autoplay loop>
         <source src="music/Bankai.mp3" type="audio/mp3">
     </audio>
 
@@ -414,7 +427,8 @@
             audioPlayer.autoplay = true;
             audioPlayer.loop = true;
         });
-    </script>
+    </script> -->
+    <!--audio--- end----------------->
 
   </body>
 </html>
