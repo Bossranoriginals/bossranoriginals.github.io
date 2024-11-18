@@ -408,6 +408,107 @@
     </marquee></span>
         </button>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+    const audio = document.getElementById('audio');
+    const audioSrc = 'https://radio.wish1075.com/web/stream/wish.m3u8';
+
+    if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(audioSrc);
+        hls.attachMedia(audio);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+            document.getElementById('play').disabled = false;
+        });
+    } else if (audio.canPlayType('application/vnd.apple.mpegurl')) {
+        audio.src = audioSrc;
+        audio.addEventListener('loadedmetadata', () => {
+            document.getElementById('play').disabled = false;
+        });
+    }
+
+    // Function to check device type
+    function isMobileOrTablet() {
+        return /Mobi|Tablet/i.test(navigator.userAgent);
+    }
+
+    // Set default audio state based on device type
+    if (isMobileOrTablet()) {
+        audio.pause(); // Default to paused
+        document.getElementById('play').style.display = 'flex'; // Show play button
+        document.getElementById('pause').style.display = 'none'; // Hide pause button
+    } else {
+        // Check localStorage for saved audio state
+        window.onload = function() {
+            const audioState = localStorage.getItem('audioState');
+            if (audioState === 'playing') {
+                audio.play();
+                document.getElementById('play').style.display = 'none';
+                document.getElementById('pause').style.display = 'flex';
+            }
+        };
+    }
+
+    document.getElementById('play').addEventListener('click', () => {
+        audio.play();
+        localStorage.setItem('audioState', 'playing'); // Save state
+        document.getElementById('play').style.display = 'none'; // Hide play button
+        document.getElementById('pause').style.display = 'flex'; // Show pause button
+    });
+
+    document.getElementById('pause').addEventListener('click', () => {
+        audio.pause();
+        localStorage.setItem('audioState', 'paused'); // Save state
+        document.getElementById('pause').style.display = 'none'; // Hide pause button
+        document.getElementById('play').style.display = 'flex'; // Show play button
+    });
+
+    // Handle audio end event
+    audio.addEventListener('ended', function() {
+        localStorage.setItem('audioState', 'paused'); // Save state when audio ends
+        document.getElementById('pause').style.display = 'none'; // Hide pause button
+        document.getElementById('play').style.display = 'flex'; // Show play button
+    });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const shows = {
+        'morning-wish': { start: 5, end: 9 },
+        'wonderland': { start: 9, end: 12 },
+        'wish-list': { start: 12, end: 16 },
+        'roadshow': { start: 16, end: 20 },
+        'wishpers-of-love': { start: 20, end: 24 },
+        'moonlight-wishes': { start: 0, end: 5 }
+    };
+
+    const now = new Date();
+    const localTime = now.toLocaleString("en-US", { timeZone: "Asia/Manila" });
+    const date = new Date(localTime);
+    const day = date.getDay();
+    const hours = date.getHours();
+
+    let currentShow = "🚍 🎤 🎶 ⭐️"; // Default text if no show is found
+
+    // Hide all shows by default
+    for (let show in shows) {
+        if (day >= 1 && day <= 5) { // Only check on weekdays
+            if (hours >= shows[show].start && hours < shows[show].end) {
+                currentShow = show.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase()); // Format to title case
+                break;
+            }
+        }
+    }
+
+    // Add spaces to the marquee text
+    const spaces = '&nbsp;'.repeat(20); // 20 space characters
+    const marqueeText = currentShow ? `On Air : ${currentShow}${spaces}` : "On Air" + spaces;
+
+    // Update the marquee text
+    const marquee = document.getElementById('show-marquee');
+    marquee.innerHTML = marqueeText;
+});
+</script>
     <!--audio-------------------->
 <!--       <audio id="audioPlayer" autoplay loop>
         <source src="music/Bankai.mp3" type="audio/mp3">
