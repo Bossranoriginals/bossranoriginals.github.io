@@ -544,7 +544,7 @@ input:-webkit-autofill {
 }
 .download-con .btn-tw-m-hover {
   display: none;
-  width: 276px;
+  width: 476px; 
   position: absolute;
   border-radius: 5px;
   top: -200px;
