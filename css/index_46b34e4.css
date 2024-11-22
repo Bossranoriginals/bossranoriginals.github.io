@@ -545,13 +545,13 @@ input:-webkit-autofill {
 }
 .download-con .btn-tw-m-hover {
   display: none;
-  width: 276px;
+  width: 250px;
   position: absolute;
   border-radius: 5px;
+  top: 0px;
+  left: 250px;
   top: -200px;
-  left: -10px;
-  top: -105px;
-  left: 0;
+  left: 500;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
