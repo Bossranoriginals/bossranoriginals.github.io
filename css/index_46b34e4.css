@@ -1713,6 +1713,17 @@ a.prev.pager:hover {
   background: url(../images/index-bg_8e89057.jpg) no-repeat center top;
   background-size: cover;
 }
+.video_bg1 {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  overflow: hidden;
+  background: url(../images/index-bg_8e89057_1.jpg) no-repeat center top;
+  background-size: cover;
+}
 .video_bg video {
   position: absolute;
   left: 50%;
@@ -1755,6 +1766,20 @@ a.prev.pager:hover {
   background-size: 100%;
   z-index: 1;
 }
+.container .slogan1 {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translate(-50%);
+  width: 1920px;
+  height: 1080px;
+  margin-left: 10px;
+  background: url(../images/slo_f235958_1.png) center no-repeat;
+  background-size: 100%;
+  z-index: 1;
+}
+
+
 .container .middle-box {
   position: absolute;
   left: 50%;
