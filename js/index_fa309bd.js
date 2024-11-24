@@ -362,6 +362,26 @@ nie.define(function () {
         ga('send', 'event', 'click_app store', 'click');
       });
 
+      $('.btn-t a').click(function () {
+        let index = $(this).index();
+        $('.video-lists').addClass('non');
+        $('.more-video').removeClass('on')
+        if (index == 0) {
+          $('.btn-t').removeClass('on');
+          $('.video-lists1').removeClass('non');
+          $('.more-video1').addClass('on')
+          nie.config.stats.url.addto('click_videos', '日版-视频中心');
+        } else {
+          $('.btn-t').addClass('on');
+          $('.video-lists2').removeClass('non');
+          $('.more-video2').addClass('on')
+          nie.config.stats.url.addto('click_zbgl', '日版-视频中心');
+        }
+      });
+      $('.video-lists').click(function () {
+        ga('send', 'event', 'video', 'click');
+      });
+
       $(".btn-tw-m").on({
         mouseover: function () {
           $(".btn-tw-m-hover").show()
