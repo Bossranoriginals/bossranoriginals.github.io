@@ -1910,6 +1910,9 @@ a.prev.pager:hover {
 .container .nav_bullet:nth-child(4):before {
   content: "Wallpaper Download";
 }
+.container .nav_bullet:nth-child(5):before {
+  content: "Video";
+}
 .page3 {
   background: url(../images/bg1_7a2fdd4.jpg) center center no-repeat;
   position: relative;
