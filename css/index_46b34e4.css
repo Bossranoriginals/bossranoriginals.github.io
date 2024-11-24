@@ -2901,9 +2901,21 @@ a.prev.pager:hover {
   background: url(../images/sex-wm_79c8016.png) -108px 0 no-repeat;
   background-size: cover;
 }
+
 .s4 .cenbox #swiper-pagination-3 .sp li:nth-child(2).active {
   background: url(../images/sex-wm-a_5710081.png) -108px 0 no-repeat;
   background-size: cover;
+}
+.s4 {
+  background: url(../images/bg4_cd8a79f.jpg) center center no-repeat;
+}
+.s4 .cenbox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1200px;
+  height: 562px;
+  margin: -281px 0 0 -600px;
 }
 .s4 .t3 {
   background: url(../images/til4_31e6c7d.png);
