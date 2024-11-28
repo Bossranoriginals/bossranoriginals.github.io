@@ -1765,6 +1765,16 @@ a.prev.pager:hover {
 .container > .swiper-container .last-screen {
   height: auto;
 }
+.container .fc-right {
+  background: url(../images/right_7493136.png) center no-repeat;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  right: 10px;
+  top: 25%;
+  z-index: 22;
+}
+
 .container .slogan {
   position: absolute;
   left: 50%;
