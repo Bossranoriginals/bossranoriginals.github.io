@@ -1773,6 +1773,10 @@ a.prev.pager:hover {
   right: 10px;
   top: 25%;
   z-index: 22;
+  transition: transform 0.3s ease; /* Add a smooth transition */
+}
+.container .fc-right:hover {
+  transform: scale(1.1); /* Zoom in by 10% */
 }
 
 .container .slogan {
