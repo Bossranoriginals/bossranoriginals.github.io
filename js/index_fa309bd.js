@@ -362,6 +362,10 @@ nie.define(function () {
         ga('send', 'event', 'click_app store', 'click');
       });
 
+      $('.fc-right').click(function () {
+        nie.config.stats.url.addto('click_right', '点击_右边浮窗');
+      });
+
       $('.btn-t a').click(function () {
         let index = $(this).index();
         $('.video-lists').addClass('non');
