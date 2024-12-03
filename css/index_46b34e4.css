@@ -2202,7 +2202,8 @@ a.prev.pager:hover {
 }
 .s3 {
   background: url(../images/bg2_474c38b.jpg) center center no-repeat;
-  overflow: hidden;
+  position: relative;
+  /*overflow: hidden;*/
 }
 .s3 .cenbox {
   width: 1200px;
@@ -2921,7 +2922,9 @@ a.prev.pager:hover {
   background-size: cover;
 }
 .s4 {
-  background: url(../images/bg3_380ec3a.jpg) center center no-repeat;
+  background: url(../images/bg4_xmas.jpg) center center no-repeat;
+
+  position: relative;
 }
 .s4 .cenbox {
   position: absolute;
