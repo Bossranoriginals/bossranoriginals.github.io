@@ -2202,8 +2202,7 @@ a.prev.pager:hover {
 }
 .s3 {
   background: url(../images/bg2_474c38b.jpg) center center no-repeat;
-  position: relative;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 .s3 .cenbox {
   width: 1200px;
@@ -2393,7 +2392,7 @@ a.prev.pager:hover {
   overflow: hidden;
 }
 .s2 .video_bg {
-  background: url(../images/bg3_380ec3a.jpg) center center no-repeat;
+  background: url(../images/bg4_xmas.jpg) center center no-repeat;
 }
 .s2 .video_bg:before {
   background-image: url(../images/layer2_7c3acc4.png);
@@ -2922,9 +2921,7 @@ a.prev.pager:hover {
   background-size: cover;
 }
 .s4 {
-  background: url(../images/bg4_xmas.jpg) center center no-repeat;
-
-  position: relative;
+  background: url(../images/bg3_380ec3a.jpg) center center no-repeat;
 }
 .s4 .cenbox {
   position: absolute;
