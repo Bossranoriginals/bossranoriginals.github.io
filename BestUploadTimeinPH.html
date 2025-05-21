@@ -6,63 +6,72 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f6f8;
+      background: #f0f4f8;
+      padding: 40px 0;
       margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
     }
 
     .container {
+      max-width: 640px;
+      margin: auto;
       text-align: center;
-      margin-top: 50px;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 800px;
-      width: 90%;
     }
 
     h1 {
-      color: #2c3e50;
-      margin-bottom: 10px;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 24px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
     h2 {
-      margin-top: 40px;
-      color: #34495e;
+      font-size: 20px;
+      margin-bottom: 8px;
     }
 
-    p.description {
-      margin-top: 0;
-      margin-bottom: 25px;
-      color: #7f8c8d;
-      font-size: 15px;
+    .description {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 18px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 30px;
+      margin-top: 10px;
     }
 
-    th, td {
-      padding: 12px 10px;
-      border-bottom: 1px solid #ddd;
-      text-align: center;
+    td {
+      padding: 10px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    td:first-child {
+      text-align: left;
+      color: #555;
+    }
+
+    td:nth-child(2) {
+      color: #27ae60;
+    }
+
+    td:last-child {
+      font-size: 13px;
+      color: #e67e22;
     }
 
     .highlight {
-      background-color: #f1f8ff;
+      background-color: #eaf4ff;
+      border-left: 5px solid #007bff;
       font-weight: bold;
     }
-
-    .day { color: #2980b9; font-weight: 600; }
-    .time { color: #27ae60; }
-    .date { color: #e67e22; font-size: 14px; }
   </style>
 </head>
 <body>
@@ -70,64 +79,65 @@
 <div class="container">
   <h1>📅 Upload Schedules</h1>
 
-  <h2>🌎 Best Upload Time for U.S. Audience (Upload in PH)</h2>
-  <p class="description">Maximize reach with American viewers. Always live, always visible worldwide.</p>
-  <table id="uploadTableUS"></table>
+  <div class="card">
+    <h2>🌍 Best Upload Time for U.S. Audience</h2>
+    <p class="description">Maximize reach with American viewers. Always live, always visible worldwide.</p>
+    <table id="uploadTableUS"></table>
+  </div>
 
-  <h2>🌎 Best Upload Time for PH Audience (Upload in PH)</h2>
-  <p class="description">Target peak activity hours for Filipino fans. Strong local engagement guaranteed.</p>
-  <table id="uploadTablePH"></table>
+  <div class="card">
+    <h2>🇵🇭 Best Upload Time for PH Audience</h2>
+    <p class="description">Target peak activity hours for Filipino fans. Strong local engagement guaranteed.</p>
+    <table id="uploadTablePH"></table>
+  </div>
 </div>
 
 <script>
-const nowPH = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" }));
-const todayName = getDayName(nowPH.getDay());
-const dateStr = nowPH.toLocaleDateString("en-PH", { month: "short", day: "numeric" });
+  const nowPH = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" }));
+  const todayName = getDayName(nowPH.getDay());
+  const dateStr = nowPH.toLocaleDateString("en-PH", { month: "short", day: "numeric" });
 
-// U.S. Audience Upload Schedule (Full Week)
-const uploadUS = {
-  Monday: "12:30 AM",
-  Tuesday: "1:00 AM",
-  Wednesday: "2:30 AM",
-  Thursday: "3:00 AM",
-  Friday: "12:15 AM",
-  Saturday: "1:30 AM",
-  Sunday: "2:00 AM"
-};
+  const uploadTimesUS = {
+    Monday: "12:30 AM",
+    Tuesday: "1:00 AM",
+    Wednesday: "2:30 AM",
+    Thursday: "3:00 AM",
+    Friday: "12:15 AM",
+    Saturday: "1:30 AM",
+    Sunday: "2:00 AM"
+  };
 
-// PH Audience Upload Schedule (Full Week)
-const uploadPH = {
-  Monday: "1:15 PM",
-  Tuesday: "2:00 PM",
-  Wednesday: "4:30 PM",
-  Thursday: "5:00 PM",
-  Friday: "6:00 PM",
-  Saturday: "3:30 PM",
-  Sunday: "2:45 PM"
-};
+  const uploadTimesPH = {
+    Monday: "1:15 PM",
+    Tuesday: "2:00 PM",
+    Wednesday: "4:30 PM",
+    Thursday: "5:00 PM",
+    Friday: "6:00 PM",
+    Saturday: "3:30 PM",
+    Sunday: "2:45 PM"
+  };
 
-function generateTable(data, tableId) {
-  const table = document.getElementById(tableId);
-  Object.entries(data).forEach(([day, time]) => {
-    const isToday = day === todayName;
-    const row = document.createElement("tr");
-    row.className = isToday ? 'highlight' : '';
+  function getDayName(index) {
+    return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][index];
+  }
 
-    const dayCell = `<td class="day">${day}</td>`;
-    const timeCell = `<td class="time">${time}</td>`;
-    const dateCell = isToday ? `<td class="date">&lt; ${dateStr}</td>` : `<td></td>`;
+  function renderTable(data, tableId) {
+    const table = document.getElementById(tableId);
+    Object.entries(data).forEach(([day, time]) => {
+      const isToday = (day === todayName);
+      const tr = document.createElement('tr');
+      if (isToday) tr.classList.add('highlight');
+      tr.innerHTML = `
+        <td>${day}</td>
+        <td>${time}</td>
+        <td>${isToday ? '&lt; ' + dateStr : ''}</td>
+      `;
+      table.appendChild(tr);
+    });
+  }
 
-    row.innerHTML = dayCell + timeCell + dateCell;
-    table.appendChild(row);
-  });
-}
-
-function getDayName(index) {
-  return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][index];
-}
-
-generateTable(uploadUS, 'uploadTableUS');
-generateTable(uploadPH, 'uploadTablePH');
+  renderTable(uploadTimesUS, "uploadTableUS");
+  renderTable(uploadTimesPH, "uploadTablePH");
 </script>
 
 </body>
