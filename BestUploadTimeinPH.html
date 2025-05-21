@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Upload Schedules</title>
+  <title>Upload Schedule</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -22,12 +22,13 @@
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 700px;
+      max-width: 800px;
       width: 90%;
     }
 
     h1 {
       color: #2c3e50;
+      margin-bottom: 10px;
     }
 
     h2 {
@@ -69,13 +70,17 @@
 <div class="container">
   <h1>📅 Upload Schedules</h1>
 
-  <h2>🌎 Best Upload Time for U.S. Audience</h2>
-  <p class="description">Reach American viewers while they're online. Always Live. Always Visible.</p>
+  <h2>🌎 U.S. Audience</h2>
+  <p class="description">Boost global reach with best upload times for American audiences.</p>
   <table id="uploadTableUS"></table>
 
-  <h2>🇵🇭 Best Upload Time for PH Audience</h2>
-  <p class="description">Perfect timing for viewers in the Philippines. Engage local fans!</p>
-  <table id="uploadTablePH"></table>
+  <h2>🇵🇭 PH Audience – Group 1</h2>
+  <p class="description">Focused on weekend & midweek engagement for active Filipino viewers.</p>
+  <table id="uploadTablePH1"></table>
+
+  <h2>🇵🇭 PH Audience – Group 2</h2>
+  <p class="description">Optimized for weekday engagement to hit returning Filipino traffic.</p>
+  <table id="uploadTablePH2"></table>
 </div>
 
 <script>
@@ -83,7 +88,7 @@ const nowPH = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Mani
 const todayName = getDayName(nowPH.getDay());
 const dateStr = nowPH.toLocaleDateString("en-PH", { month: "short", day: "numeric" });
 
-// Upload Group 1: U.S. Audience
+// U.S. Upload Times (Full Week)
 const uploadUS = {
   Monday: "12:30 AM",
   Tuesday: "1:00 AM",
@@ -94,11 +99,18 @@ const uploadUS = {
   Sunday: "2:00 AM"
 };
 
-// Upload Group 2: PH Audience
-const uploadPH = {
+// PH Group 1: Tuesday, Thursday, Saturday, Sunday
+const uploadPH1 = {
   Tuesday: "2:00 PM",
-  Wednesday: "4:30 PM",
   Thursday: "5:00 PM",
+  Saturday: "3:30 PM",
+  Sunday: "2:45 PM"
+};
+
+// PH Group 2: Monday, Wednesday, Friday
+const uploadPH2 = {
+  Monday: "1:15 PM",
+  Wednesday: "4:30 PM",
   Friday: "6:00 PM"
 };
 
@@ -123,7 +135,8 @@ function getDayName(index) {
 }
 
 generateTable(uploadUS, 'uploadTableUS');
-generateTable(uploadPH, 'uploadTablePH');
+generateTable(uploadPH1, 'uploadTablePH1');
+generateTable(uploadPH2, 'uploadTablePH2');
 </script>
 
 </body>
