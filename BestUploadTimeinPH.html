@@ -124,8 +124,8 @@
 
   <!-- Tabs -->
   <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('us')">🇺🇸 U.S. Schedule</button>
-    <button class="tab-btn" onclick="showTab('ph')">🇵🇭 PH Schedule</button>
+    <button class="tab-btn active" onclick="showTab('us')">🇺🇸 U.S Target (PH Upload)</button>
+    <button class="tab-btn" onclick="showTab('ph')">🇵🇭 PH Target (PH Upload)</button>
   </div>
 
   <!-- US Tab Content -->
@@ -177,61 +177,62 @@
   const dateStr = today.toLocaleString("en-PH", { month: "short", day: "numeric" });
 
   const scheds = {
-    "us-overall": {
-      Monday: "12:30 AM",
-      Tuesday: "1:00 AM",
-      Wednesday: "2:30 AM",
-      Thursday: "3:00 AM",
-      Friday: "12:15 AM",
-      Saturday: "1:30 AM",
-      Sunday: "2:00 AM"
-    },
-    "us-night": {
-      Monday: "11:00 PM",
-      Tuesday: "10:30 PM",
-      Wednesday: "12:00 AM",
-      Thursday: "11:45 PM",
-      Friday: "12:30 AM",
-      Saturday: "1:00 AM",
-      Sunday: "11:15 PM"
-    },
-    "us-morning": {
-      Monday: "7:30 AM",
-      Tuesday: "8:00 AM",
-      Wednesday: "7:45 AM",
-      Thursday: "9:00 AM",
-      Friday: "8:15 AM",
-      Saturday: "9:30 AM",
-      Sunday: "8:00 AM"
-    },
-    "ph-overall": {
-      Monday: "1:15 PM",
-      Tuesday: "2:00 PM",
-      Wednesday: "4:30 PM",
-      Thursday: "5:00 PM",
-      Friday: "6:00 PM",
-      Saturday: "3:30 PM",
-      Sunday: "2:45 PM"
-    },
-    "ph-night": {
-      Monday: "9:30 PM",
-      Tuesday: "10:00 PM",
-      Wednesday: "9:45 PM",
-      Thursday: "10:15 PM",
-      Friday: "11:00 PM",
-      Saturday: "10:30 PM",
-      Sunday: "9:00 PM"
-    },
-    "ph-morning": {
-      Monday: "8:00 AM",
-      Tuesday: "8:30 AM",
-      Wednesday: "9:00 AM",
-      Thursday: "7:45 AM",
-      Friday: "8:15 AM",
-      Saturday: "9:30 AM",
-      Sunday: "8:45 AM"
-    }
-  };
+  "us-overall": {
+    Monday: "12:00 AM",
+    Tuesday: "12:15 AM",
+    Wednesday: "12:30 AM",
+    Thursday: "12:15 AM",
+    Friday: "12:00 AM",
+    Saturday: "11:30 PM",
+    Sunday: "11:45 PM"
+  },
+  "us-night": {
+    Monday: "9:30 PM",
+    Tuesday: "9:45 PM",
+    Wednesday: "9:30 PM",
+    Thursday: "9:45 PM",
+    Friday: "10:00 PM",
+    Saturday: "10:15 PM",
+    Sunday: "9:45 PM"
+  },
+  "us-morning": {
+    Monday: "7:30 AM",
+    Tuesday: "7:45 AM",
+    Wednesday: "7:30 AM",
+    Thursday: "7:45 AM",
+    Friday: "7:30 AM",
+    Saturday: "8:00 AM",
+    Sunday: "8:15 AM"
+  },
+
+  "ph-overall": {
+    Monday: "6:00 PM",
+    Tuesday: "6:15 PM",
+    Wednesday: "6:00 PM",
+    Thursday: "6:15 PM",
+    Friday: "6:30 PM",
+    Saturday: "5:30 PM",
+    Sunday: "5:45 PM"
+  },
+  "ph-night": {
+    Monday: "10:00 PM",
+    Tuesday: "10:15 PM",
+    Wednesday: "10:00 PM",
+    Thursday: "10:15 PM",
+    Friday: "10:30 PM",
+    Saturday: "10:30 PM",
+    Sunday: "10:15 PM"
+  },
+  "ph-morning": {
+    Monday: "8:00 AM",
+    Tuesday: "8:15 AM",
+    Wednesday: "8:00 AM",
+    Thursday: "8:15 AM",
+    Friday: "8:30 AM",
+    Saturday: "8:30 AM",
+    Sunday: "8:15 AM"
+  }
+};
 
   function renderTable(id, data) {
     const table = document.getElementById(id);
