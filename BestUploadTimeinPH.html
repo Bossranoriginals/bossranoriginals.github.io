@@ -22,12 +22,13 @@
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 700px;
+      max-width: 800px;
       width: 90%;
     }
 
     h1 {
       color: #2c3e50;
+      margin-bottom: 10px;
     }
 
     h2 {
@@ -70,11 +71,11 @@
   <h1>📅 Upload Schedules</h1>
 
   <h2>🌎 Best Upload Time for U.S. Audience</h2>
-  <p class="description">Reach American viewers while they're online. Always Live. Always Visible.</p>
+  <p class="description">Maximize reach with American viewers. Always live, always visible worldwide.</p>
   <table id="uploadTableUS"></table>
 
   <h2>🇵🇭 Best Upload Time for PH Audience</h2>
-  <p class="description">Perfect timing for viewers in the Philippines. Engage local fans!</p>
+  <p class="description">Target peak activity hours for Filipino fans. Strong local engagement guaranteed.</p>
   <table id="uploadTablePH"></table>
 </div>
 
@@ -83,7 +84,7 @@ const nowPH = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Mani
 const todayName = getDayName(nowPH.getDay());
 const dateStr = nowPH.toLocaleDateString("en-PH", { month: "short", day: "numeric" });
 
-// Upload Group 1: U.S. Audience
+// U.S. Audience Upload Schedule (Full Week)
 const uploadUS = {
   Monday: "12:30 AM",
   Tuesday: "1:00 AM",
@@ -94,12 +95,15 @@ const uploadUS = {
   Sunday: "2:00 AM"
 };
 
-// Upload Group 2: PH Audience
+// PH Audience Upload Schedule (Full Week)
 const uploadPH = {
+  Monday: "1:15 PM",
   Tuesday: "2:00 PM",
   Wednesday: "4:30 PM",
   Thursday: "5:00 PM",
-  Friday: "6:00 PM"
+  Friday: "6:00 PM",
+  Saturday: "3:30 PM",
+  Sunday: "2:45 PM"
 };
 
 function generateTable(data, tableId) {
