@@ -4,31 +4,15 @@
   <meta charset="UTF-8">
   <title>Best Upload Time (PH)</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 500px;
-    }
-    th, td {
-      padding: 8px 12px;
-      border-bottom: 1px solid #ccc;
-      text-align: left;
-    }
-    .highlight { font-weight: bold; }
-    .day { color: #2980b9; }       /* Blue */
-    .time { color: #27ae60; }      /* Green */
-    .date { color: #e67e22; }      /* Orange */
-    .arrow { color: #8e44ad; }     /* Purple */
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; max-width: 400px; }
+    th, td { padding: 8px 12px; border-bottom: 1px solid #ccc; text-align: left; }
+    .highlight { font-weight: bold; color: #d35400; }
   </style>
 </head>
 <body>
 
 <h2>Best Upload Time (Philippines)</h2>
-<h3>Us Target Audience</h3>
 <table id="uploadTable">
   <!-- Filled by JavaScript -->
 </table>
@@ -47,6 +31,7 @@ const uploadTimes = {
 const phTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" });
 const now = new Date(phTime);
 const days = Object.keys(uploadTimes);
+
 const table = document.getElementById("uploadTable");
 
 days.forEach((day, index) => {
@@ -60,14 +45,13 @@ days.forEach((day, index) => {
   uploadDate.setSeconds(0);
   uploadDate.setMilliseconds(0);
 
+  // Adjust to correct day of the week
+  const dayIndex = index;
   const currentDay = now.getDay(); // Sunday = 0
-  const dayIndex = (index + 1) % 7;
-  const diff = (dayIndex - currentDay + 7) % 7;
-  if (diff !== 0 || uploadDate < now) {
-    uploadDate.setDate(now.getDate() + diff);
-  }
+  const diff = (dayIndex + 1) % 7 - currentDay;
+  uploadDate.setDate(now.getDate() + diff);
 
-  const timeDiff = (uploadDate - now) / 3600000; // in hours
+  const timeDiff = (uploadDate - now) / 3600000; // difference in hours
   let arrow = "";
   if ((day === getDayName(now.getDay())) && timeDiff >= 8) {
     arrow = "→";
@@ -75,15 +59,11 @@ days.forEach((day, index) => {
     arrow = "←";
   }
 
-  const formattedDate = uploadDate.toLocaleDateString("en-PH", { month: "short", day: "numeric" });
-
   const row = document.createElement("tr");
-  const isToday = day === getDayName(now.getDay());
   row.innerHTML = `
-    <td class="${isToday ? 'highlight' : ''} day">${day}</td>
-    <td class="time">${timeStr}</td>
-    <td class="date">&lt; ${formattedDate}</td>
-    <td class="arrow">${arrow}</td>
+    <td class="${day === getDayName(now.getDay()) ? 'highlight' : ''}">${day}</td>
+    <td>${timeStr}</td>
+    <td>${arrow}</td>
   `;
   table.appendChild(row);
 });
