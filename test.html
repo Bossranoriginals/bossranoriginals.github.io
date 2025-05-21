@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Best Upload Time (PH)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; max-width: 400px; }
+    th, td { padding: 8px 12px; border-bottom: 1px solid #ccc; text-align: left; }
+    .highlight { font-weight: bold; color: #d35400; }
+  </style>
+</head>
+<body>
+
+<h2>Best Upload Time (Philippines)</h2>
+<table id="uploadTable">
+  <!-- Filled by JavaScript -->
+</table>
+
+<script>
+const uploadTimes = {
+  Monday: "12:30 AM",
+  Tuesday: "1:00 AM",
+  Wednesday: "2:30 AM",
+  Thursday: "3:00 AM",
+  Friday: "12:15 AM",
+  Saturday: "1:30 AM",
+  Sunday: "2:00 AM"
+};
+
+const phTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" });
+const now = new Date(phTime);
+const days = Object.keys(uploadTimes);
+
+const table = document.getElementById("uploadTable");
+
+days.forEach((day, index) => {
+  const timeStr = uploadTimes[day];
+  const [rawTime, meridian] = timeStr.split(" ");
+  const [hours, minutes] = rawTime.split(":").map(Number);
+
+  let uploadDate = new Date(now);
+  uploadDate.setHours(meridian === "PM" && hours !== 12 ? hours + 12 : hours % 12);
+  uploadDate.setMinutes(minutes);
+  uploadDate.setSeconds(0);
+  uploadDate.setMilliseconds(0);
+
+  // Adjust to correct day of the week
+  const dayIndex = index;
+  const currentDay = now.getDay(); // Sunday = 0
+  const diff = (dayIndex + 1) % 7 - currentDay;
+  uploadDate.setDate(now.getDate() + diff);
+
+  const timeDiff = (uploadDate - now) / 3600000; // difference in hours
+  let arrow = "";
+  if ((day === getDayName(now.getDay())) && timeDiff >= 8) {
+    arrow = "→";
+  } else if ((day === getDayName(now.getDay())) && timeDiff < 0) {
+    arrow = "←";
+  }
+
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td class="${day === getDayName(now.getDay()) ? 'highlight' : ''}">${day}</td>
+    <td>${timeStr}</td>
+    <td>${arrow}</td>
+  `;
+  table.appendChild(row);
+});
+
+function getDayName(index) {
+  return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][index];
+}
+</script>
+
+</body>
+</html>
