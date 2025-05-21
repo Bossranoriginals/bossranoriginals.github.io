@@ -5,34 +5,70 @@
   <title>Best Upload Time (PH)</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
     }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 500px;
+
+    .container {
+      text-align: center;
+      margin-top: 50px;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 90%;
     }
-    th, td {
-      padding: 8px 12px;
-      border-bottom: 1px solid #ccc;
-      text-align: left;
-    }
-    .highlight {
-      font-weight: bold;
-      background-color: #f6f9fc;
+
+    h1 {
+      margin-bottom: 5px;
       color: #2c3e50;
     }
-    .day { color: #2980b9; }    /* Blue */
-    .time { color: #27ae60; }   /* Green */
-    .date { color: #e67e22; }   /* Orange */
-    .arrow { color: #8e44ad; }  /* Purple */
+
+    p.description {
+      margin-top: 0;
+      margin-bottom: 25px;
+      color: #7f8c8d;
+      font-size: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .highlight {
+      background-color: #f1f8ff;
+      font-weight: bold;
+    }
+
+    .day { color: #2980b9; font-weight: 600; }
+    .time { color: #27ae60; }
+    .date { color: #e67e22; font-size: 14px; }
   </style>
 </head>
 <body>
 
-<h2>Best Upload Time (Philippines)</h2>
-<table id="uploadTable"></table>
+<div class="container">
+  <h1>📅 Philippine Upload Schedule</h1>
+  <p class="description">Optimized for global visibility — especially U.S. viewers 🇺🇸<br><strong>Always Live. Always Ready.</strong></p>
+
+  <table id="uploadTable">
+    <!-- JavaScript fills this -->
+  </table>
+</div>
 
 <script>
 const uploadTimes = {
@@ -51,17 +87,16 @@ const currentDayName = getDayName(now.getDay());
 const days = Object.keys(uploadTimes);
 const table = document.getElementById("uploadTable");
 
-days.forEach((day, index) => {
+days.forEach((day) => {
   const timeStr = uploadTimes[day];
   const isToday = day === currentDayName;
 
   const row = document.createElement("tr");
   row.className = isToday ? 'highlight' : '';
 
-  // Create columns
   const dayCell = `<td class="day">${day}</td>`;
   const timeCell = `<td class="time">${timeStr}</td>`;
-  let dateCell = `<td></td>`; // blank for others
+  let dateCell = `<td></td>`;
 
   if (isToday) {
     const dateStr = now.toLocaleDateString("en-PH", { month: "short", day: "numeric" });
