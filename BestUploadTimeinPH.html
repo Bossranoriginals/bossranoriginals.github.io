@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Best Upload Time (PH)</title>
+  <title>Upload Schedules</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -22,25 +22,30 @@
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 600px;
+      max-width: 700px;
       width: 90%;
     }
 
     h1 {
-      margin-bottom: 5px;
       color: #2c3e50;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: #34495e;
     }
 
     p.description {
       margin-top: 0;
       margin-bottom: 25px;
       color: #7f8c8d;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
+      margin-bottom: 30px;
     }
 
     th, td {
@@ -62,16 +67,24 @@
 <body>
 
 <div class="container">
-  <h1>📅 Philippine Upload Schedule</h1>
-  <p class="description">Optimized for global visibility — especially U.S. viewers 🇺🇸<br><strong>Always Live. Always Ready.</strong></p>
+  <h1>📅 Upload Schedules</h1>
 
-  <table id="uploadTable">
-    <!-- JavaScript fills this -->
-  </table>
+  <h2>🌎 Best Upload Time for U.S. Audience</h2>
+  <p class="description">Reach American viewers while they're online. Always Live. Always Visible.</p>
+  <table id="uploadTableUS"></table>
+
+  <h2>🇵🇭 Best Upload Time for PH Audience</h2>
+  <p class="description">Perfect timing for viewers in the Philippines. Engage local fans!</p>
+  <table id="uploadTablePH"></table>
 </div>
 
 <script>
-const uploadTimes = {
+const nowPH = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" }));
+const todayName = getDayName(nowPH.getDay());
+const dateStr = nowPH.toLocaleDateString("en-PH", { month: "short", day: "numeric" });
+
+// Upload Group 1: U.S. Audience
+const uploadUS = {
   Monday: "12:30 AM",
   Tuesday: "1:00 AM",
   Wednesday: "2:30 AM",
@@ -81,35 +94,36 @@ const uploadTimes = {
   Sunday: "2:00 AM"
 };
 
-const phTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" });
-const now = new Date(phTime);
-const currentDayName = getDayName(now.getDay());
-const days = Object.keys(uploadTimes);
-const table = document.getElementById("uploadTable");
+// Upload Group 2: PH Audience
+const uploadPH = {
+  Tuesday: "2:00 PM",
+  Wednesday: "4:30 PM",
+  Thursday: "5:00 PM",
+  Friday: "6:00 PM"
+};
 
-days.forEach((day) => {
-  const timeStr = uploadTimes[day];
-  const isToday = day === currentDayName;
+function generateTable(data, tableId) {
+  const table = document.getElementById(tableId);
+  Object.entries(data).forEach(([day, time]) => {
+    const isToday = day === todayName;
+    const row = document.createElement("tr");
+    row.className = isToday ? 'highlight' : '';
 
-  const row = document.createElement("tr");
-  row.className = isToday ? 'highlight' : '';
+    const dayCell = `<td class="day">${day}</td>`;
+    const timeCell = `<td class="time">${time}</td>`;
+    const dateCell = isToday ? `<td class="date">&lt; ${dateStr}</td>` : `<td></td>`;
 
-  const dayCell = `<td class="day">${day}</td>`;
-  const timeCell = `<td class="time">${timeStr}</td>`;
-  let dateCell = `<td></td>`;
-
-  if (isToday) {
-    const dateStr = now.toLocaleDateString("en-PH", { month: "short", day: "numeric" });
-    dateCell = `<td class="date">&lt; ${dateStr}</td>`;
-  }
-
-  row.innerHTML = dayCell + timeCell + dateCell;
-  table.appendChild(row);
-});
+    row.innerHTML = dayCell + timeCell + dateCell;
+    table.appendChild(row);
+  });
+}
 
 function getDayName(index) {
   return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][index];
 }
+
+generateTable(uploadUS, 'uploadTableUS');
+generateTable(uploadPH, 'uploadTablePH');
 </script>
 
 </body>
