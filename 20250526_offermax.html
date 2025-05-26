@@ -122,7 +122,7 @@
                     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
                     document.getElementById("countdown").innerHTML =
-                    `🕒 Time left: ${days}d ${hours}h ${minutes}m ${seconds}s before offer expire`;
+                    `🕒 Time left: [${days}d ${hours}h ${minutes}m ${seconds}s] before offer expire`;
                 };
 
                 setInterval(countdown, 1000);
