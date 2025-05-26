@@ -276,8 +276,8 @@
       if (day === todayName) tr.classList.add('highlight');
       tr.innerHTML = `
         <td>${day}</td>
-        <td>${time}</td>
-        <td>${day === todayName ? '&lt; ' + dateStr : ''+ '&lt PH time; '}</td>
+        <td>${time} 'PH-Time'</td>
+        <td>${day === todayName ? '&lt; ' + dateStr : ''}</td>
       `;
       table.appendChild(tr);
     });
