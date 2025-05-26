@@ -277,7 +277,7 @@
       tr.innerHTML = `
         <td>${day}</td>
         <td>${time}</td>
-        <td>${day === todayName ? '&lt; ' + dateStr : ''}</td>
+        <td>${day === todayName ? '&lt; ' + dateStr : ''+ '&lt PH time; '}</td>
       `;
       table.appendChild(tr);
     });
