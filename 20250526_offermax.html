@@ -97,11 +97,36 @@
                 &emsp;&emsp;2x Almighty Ring Cos (30D)<br />
                 &emsp;&emsp;1x Weapon Cos (30D) <br />
                 &emsp;&emsp;1x Wing Cos (30D) <br />
-            
-
-          
+                <p style="color: red; font-weight: bold;">⏳ Limited Time Only – Offer ends on June 15!</p>
+                <p id="countdown" style="color: orange; font-weight: bold;"></p>
+        
             </p>
+
             <p>Pm the Fb page to avail </p>  
+
+            <script>
+                // Countdown to June 15
+                const countdown = () => {
+                    const endDate = new Date("June 15, 2025 23:59:59").getTime();
+                    const now = new Date().getTime();
+                    const diff = endDate - now;
+
+                    if (diff <= 0) {
+                    document.getElementById("countdown").innerHTML = "⛔ Offer expired!";
+                    return;
+                    }
+
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    document.getElementById("countdown").innerHTML =
+                    `🕒 Time left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                };
+
+                setInterval(countdown, 1000);
+            </script>
 
         </div>
         
