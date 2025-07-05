@@ -15,17 +15,18 @@
 
      <!-- Custom CSS to prevent overflow -->
      <style>
-        body, html {
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            margin: 0;  /* Prevents default margin */
-            padding: 0; /* Prevents default padding */
-            box-sizing: border-box; /* Ensures padding/borders are within element's size */
+        html, body {
+            height: 100%;           /* Ensure body takes full height of viewport */
+            margin: 0;              /* Remove default margin */
+            padding: 0;             /* Remove default padding */
+            box-sizing: border-box; /* Prevent elements from overflowing */
+            overflow-x: hidden;     /* Prevent horizontal scroll */
         }
 
-        /* Ensure content wrapper allows vertical scrolling */
         .content-wrapper {
-            overflow-y: auto; /* Allow vertical scrolling */
-            max-width: 100%;
+            height: 100%;           /* Ensure content wrapper takes full height */
+            overflow-y: auto;       /* Allow vertical scrolling */
+            max-width: 100%;        /* Prevent horizontal overflow */
         }
     </style>
     
