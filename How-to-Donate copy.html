@@ -14,19 +14,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
      <!-- Custom CSS to prevent overflow -->
-    <style>
+     <style>
         body, html {
-            overflow-x: hidden;
-            overflow-y: hidden;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
             margin: 0;  /* Prevents default margin */
             padding: 0; /* Prevents default padding */
             box-sizing: border-box; /* Ensures padding/borders are within element's size */
         }
 
-        /* Optional: You can also add a wrapper around your content */
+        /* Ensure content wrapper allows vertical scrolling */
         .content-wrapper {
+            overflow-y: auto; /* Allow vertical scrolling */
             max-width: 100%;
-            overflow: hidden;
         }
     </style>
     
